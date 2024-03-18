@@ -131,3 +131,78 @@ a:hover{
         opacity: 1;
     }
 }
+
+/* Styles for the login page */
+
+
+.login-container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2,
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container form,
+.register-container form {
+    text-align: left;
+}
+
+.login-container form label,
+.register-container form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.login-container form input[type="text"],
+.login-container form input[type="password"],
+.register-container form input[type="email"],
+.register-container form input[type="tel"],
+.register-container form input[type="password"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container form input[type="submit"],
+.register-container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container form input[type="submit"]:hover,
+.register-container form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.login-container form a,
+.register-container form a{
+    text-decoration: none;
+    justify-content: center;
+}
+
+.register-container {
+    display: none;
+    margin-top: 20px;
+}
+
+.register-container.active {
+    display: block;
+}
