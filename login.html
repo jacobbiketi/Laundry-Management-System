@@ -52,15 +52,21 @@
             <label for="phone">Phone Number:</label><br>
             <input type="tel" placeholder="Enter your phone no." id="phone_no" name="phone" required><br>
             <label for="reg-password">Password:</label><br>
-            <input type="password" placeholder="Enter your password" id="reg-password" name="password" required><br>
-            <label for="confirm-password">Confirm Password:</label><br>
-            <input type="password" placeholder="Confirm your password" id="confirm-password" name="confirm-password" required><br>
+            <div class="password-container">
+                <input type="password" placeholder="Enter your password" id="reg-password" name="password" required>
+                <i class="fa fa-eye" id="toggleRegPassword" aria-hidden="true"></i>
+            </div> <br>
+            <label for="confirm-password" class="password-toggle">Confirm Password:</label><br>
+            <div class="password-container">
+                <input type="password" placeholder="Confirm your password" id="confirm-password" name="confirm-password" required>
+                <i class="fa fa-eye" id="toggleConfirmPassword" aria-hidden="true"></i>
+            </div><br>
             <span id="password-match-error" class="password-match-error"></span><br>
             <div style="display: flex; align-items: center;">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" id="terms-checkbox" name="">
                 <span><p style="margin-left: 5px;">I have agreed with the terms and conditions</p></span>
             </div> <br>
-            <input type="submit" value="Register"> <br> <br><br>
+            <input type="submit" value="Register" id="register-button" disabled> <br> <br><br>
             <a href="" class="register a">Back To Login</a>
         </form>
     </div>
@@ -78,6 +84,38 @@
         var fieldType = passwordField.getAttribute('type');
         passwordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
         this.classList.toggle('fa-eye-slash');
+    });
+
+    // Toggle visibility of registration password
+    document.getElementById('toggleRegPassword').addEventListener('click', function() {
+        var regPasswordField = document.getElementById('reg-password');
+        var fieldType = regPasswordField.getAttribute('type');
+        regPasswordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    // Toggle visibility of confirm password
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+        var confirmPasswordField = document.getElementById('confirm-password');
+        var fieldType = confirmPasswordField.getAttribute('type');
+        confirmPasswordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    // Check if password matches confirm password as user types
+    document.getElementById('confirm-password').addEventListener('input', function() {
+        var confirmPassword = this.value;
+        var password = document.getElementById('reg-password').value;
+        var passwordMatchError = document.getElementById('password-match-error');
+        var registerButton = document.getElementById('register-button');
+        
+        if (password === confirmPassword) {
+            passwordMatchError.textContent = '';
+            registerButton.disabled = false;
+        } else {
+            passwordMatchError.textContent = 'Password does not match';
+            registerButton.disabled = true;
+        }
     });
 </script>
 </body>
