@@ -130,6 +130,7 @@ a:hover{
         transition-delay: calc(.10s *var(--i));
         opacity: 1;
     }
+
 }
 
 /* Styles for the login page */
@@ -177,6 +178,30 @@ a:hover{
     border-radius: 5px;
     box-sizing: border-box;
 }
+.password-container {
+    position: relative;
+    width: 100%; 
+}
+
+.password-container input[type="password"] {
+    width: calc(100% - 30px); /* Adjust input width to accommodate the eye icon */
+}
+.password-container input[type="password"]:focus {
+    /* Change cursor style */
+    cursor: default;
+    /* Hide cursor */
+    caret-color: transparent;
+}
+
+
+.fa-eye {
+    position: absolute;
+    top: 40%;
+    right: 5px; /* Adjust the distance of the icon from the right edge */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 
 .login-container form input[type="submit"],
 .register-container form input[type="submit"] {

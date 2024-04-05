@@ -2,19 +2,18 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the required keys exist in the $_POST array
-    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'])) {
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
+    if (isset($_POST['name'], $_POST['email'], $_POST['phone_no'], $_POST['password'])) {
+        $name = $_POST['name'];
         $email = $_POST['email'];
-        $phone = $_POST['phone'];
+        $phone_no = $_POST['phone_no'];
         $password = $_POST['password'];
 
         $link = mysqli_connect('localhost', 'root', '', 'graduation');
         if ($link === false) {
             die("Error: Unable to connect " . mysqli_connect_error());
         } else {
-            $stmt = $link->prepare("INSERT INTO customers (first_name, last_name, email,phone, password) VALUES (?, ?,  ?, ?, ?)");
-            $stmt->bind_param("sssss", $first_name, $last_name, $email,$phone, $password);
+            $stmt = $link->prepare("INSERT INTO customers (name, email, phone_no, password) VALUES ( ?,  ?, ?, ?)");
+            $stmt->bind_param("sssss", $name, $email, $phone_no, $password);
 
             if ($stmt->execute()) {
                 echo "Registration successful!";
