@@ -2,7 +2,7 @@
 session_start();
 
 // Connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'graduation');
+$db = mysqli_connect('localhost', 'root', '', 'lms');
 
 // Check for form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // User found, log them in
         $_SESSION['logged_in'] = true;
         $_SESSION['email'] = $email;
-        header('Location: gradregistration.html');
+        header('Location: landingpage.html ');
     } else {
         // Invalid credentials
         echo '<p class="message">Invalid school Email or password ! </p>';
