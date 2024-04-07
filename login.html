@@ -30,16 +30,18 @@
 <div class="login-container">
     <h2>Login</h2>
     <form action="login.php" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" required><br>
         <label for="password" class="password-toggle">Password:</label><br>
        <div class="password-container">
          <input type="password" id="password" name="password" required>
          <i class="fa fa-eye" id="togglePassword" aria-hidden="true"></i>
        </div> <br>
-        <input type="submit" value="Login"> <br> <br>
-        <p>Dont have an Account</p><br>
-        <a href="" class="register a">Register Here</a>
+       <input type="submit" value="Login"> <br> <br>
+       <p style="display: inline-block;">Don't have an Account?</p><br>
+       <a href="" class="register a" style="display: inline-block;">Register Here</a>
+       <a href="" style="float: right;">Forgot Password</a>
+       
     </form>
 
     <div class="register-container">
@@ -71,52 +73,7 @@
         </form>
     </div>
 </div>
-<script>
-    document.querySelector('.register').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.querySelector('.login-container h2').style.display = 'none';
-        document.querySelector('.login-container form').style.display = 'none';
-        document.querySelector('.register-container').style.display = 'block';
-    });
+<script src="script.js"></script>
 
-    document.getElementById('togglePassword').addEventListener('click', function() {
-        var passwordField = document.getElementById('password');
-        var fieldType = passwordField.getAttribute('type');
-        passwordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
-        this.classList.toggle('fa-eye-slash');
-    });
-
-    // Toggle visibility of registration password
-    document.getElementById('toggleRegPassword').addEventListener('click', function() {
-        var regPasswordField = document.getElementById('reg-password');
-        var fieldType = regPasswordField.getAttribute('type');
-        regPasswordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
-        this.classList.toggle('fa-eye-slash');
-    });
-
-    // Toggle visibility of confirm password
-    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
-        var confirmPasswordField = document.getElementById('confirm-password');
-        var fieldType = confirmPasswordField.getAttribute('type');
-        confirmPasswordField.setAttribute('type', fieldType === 'password' ? 'text' : 'password');
-        this.classList.toggle('fa-eye-slash');
-    });
-
-    // Check if password matches confirm password as user types
-    document.getElementById('confirm-password').addEventListener('input', function() {
-        var confirmPassword = this.value;
-        var password = document.getElementById('reg-password').value;
-        var passwordMatchError = document.getElementById('password-match-error');
-        var registerButton = document.getElementById('register-button');
-        
-        if (password === confirmPassword) {
-            passwordMatchError.textContent = '';
-            registerButton.disabled = false;
-        } else {
-            passwordMatchError.textContent = 'Password does not match';
-            registerButton.disabled = true;
-        }
-    });
-</script>
 </body>
 </html>
