@@ -3,6 +3,13 @@
     "development"
   ],
   "hints": {
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ],
+    "no-inline-styles": "off",
     "compat-api/css": [
       "default",
       {
@@ -11,13 +18,11 @@
         ]
       }
     ],
-    "axe/forms": [
+    "axe/structure": [
       "default",
       {
-        "label": "off"
+        "list": "off"
       }
-    ],
-    "no-inline-styles": "off",
-    "meta-viewport": "off"
+    ]
   }
 }

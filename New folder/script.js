@@ -39,3 +39,15 @@ document.getElementById('confirm-password').addEventListener('input', function()
         registerButton.disabled = true;
     }
 });
+$(window).scroll(function(){
+    if ($(window).scrollTop() > 20){
+        $('.navbar').addClass('sticky');
+    } else {
+        $('.navbar').removeClass('sticky'); 
+    }
+    if ($(window).scrollTop() > 500){
+        $('.scroll-up-btn').addClass('show');
+    } else {
+        $('.scroll-up-btn').removeClass('show'); 
+    }
+});
